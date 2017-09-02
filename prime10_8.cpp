@@ -5,21 +5,24 @@ int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    bool p[z];
+    bitset<z> p;
+    p.set(0);
     long long int i,j;
     for(i=2;i<z-1;i++)
     {
         if(!p[i])
-        for(j=i*i;j<=z-1;j=j+i)
+        for(j=i*i;j<=z-1;j=j+2*i)
         {
-            p[j]=true;
+            p[j]=1;
         }
     }
-    j=1;
-    for(i=2;i<z;i++)
+    j=2;
+    cout<<"2\n";
+    for(i=3;i<z;i+=2)
     {
-        if(!p[i] && j%100==1)
+        if(!p[i])
         {
+        	if(j%100==1)
             cout<<i<<"\n";
             j++;
         }
